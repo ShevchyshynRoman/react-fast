@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-fast/static/css/main.2317a508.css",
+    "main.js": "/react-fast/static/js/main.741410fa.js",
+    "index.html": "/react-fast/index.html",
+    "main.2317a508.css.map": "/react-fast/static/css/main.2317a508.css.map",
+    "main.741410fa.js.map": "/react-fast/static/js/main.741410fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2317a508.css",
+    "static/js/main.741410fa.js"
+  ]
+}
