@@ -7,6 +7,10 @@ export const useProducts = () => {
   const [isProductsLoading, setIsProductsLoading] = useState(false);
   const [isProductsLoadingError, setIsProductsLoadingError] = useState('');
 
+  const addProduct = (product: IProduct) => {
+    setProducts(prevState => [...prevState, product])
+  }
+
   useEffect(() => {
     async function response() {
       try {
@@ -27,5 +31,5 @@ export const useProducts = () => {
     response();
   }, []);
 
-  return { products, isProductsLoading, isProductsLoadingError }
+  return { products, addProduct, isProductsLoading, isProductsLoadingError }
 }

@@ -8,6 +8,8 @@ export const getProductsData = async () => {
   return response.data;
 }
 
-export const addNewproductData = async (productData: IProduct) => {
-  const response = await axios.post<IProduct>('https://fakestoreapi.com/products', productData)
+export const addNewProductData = async (productData: IProduct) => {
+  const response = await axios.post<IProduct>('https://fakestoreapi.com/products', productData);
+
+  return response.data;
 }

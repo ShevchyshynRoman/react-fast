@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {addNewproductData} from "../api/api";
-import {ErrorMessage} from "./ErrorMessage";
+import { addNewProductData } from '../api/api';
+import { ErrorMessage } from './ErrorMessage';
 
 const ProductData = {
   title: '',
@@ -15,16 +15,16 @@ const ProductData = {
 }
 
 type Props = {
-  setIsModalVisible: (visible: boolean) => void
+  onCreate: (product: IProduct) => void
 }
 
 export const CreateProductForm: React.FC<Props> = ({
-  setIsModalVisible
+  onCreate
 }) => {
   const [inputText, setInputText] = useState('');
   const [error, setError] = useState('');
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
@@ -35,8 +35,7 @@ export const CreateProductForm: React.FC<Props> = ({
 
     ProductData.title = inputText;
 
-    addNewproductData(ProductData);
-    setIsModalVisible(false);
+    onCreate(await addNewProductData(ProductData))
   }
 
   const onInputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,14 +61,6 @@ export const CreateProductForm: React.FC<Props> = ({
         className="py-2 px-4 border bg-yellow-400 hover:text-white"
       >
         Create
-      </button>
-
-      <button
-        type="button"
-        className="py-2 px-4 border bg-blue-400 hover:text-white"
-        onClick={() => setIsModalVisible(false)}
-      >
-        Close modal
       </button>
     </form>
   );
